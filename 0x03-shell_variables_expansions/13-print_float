@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "4.2f" $NUM | sort
+printf "4.2F" $NUM | sort
