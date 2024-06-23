@@ -1,4 +1,3 @@
 #!/bin/bash
-find . -type f -name "*.gif" | while read -r file; do
-    basename "${file}" .gif
-done | LC_ALL=C sort -f
+find . -type f -name "*.gif" -print0 | xargs -0 -I {} sh -c 'f=$(echo {} | rev | cut -d. -f2- | rev); size=$(stat -c%s "{}"); printf "%s\n" "$f[$size]"’ | sort -n -k2 | cut -d '[' -f1
+
