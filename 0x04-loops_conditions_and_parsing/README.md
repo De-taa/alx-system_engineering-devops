@@ -1,1 +1,2 @@
-loops and conditionals
+
+ops, conditions and parsing
