@@ -1,5 +1,16 @@
 #!/usr/bin/env bash
-# run apache on holbertonschool/265-0 container
+# Run Apache on holbertonschool/265-0 container
 
-echo "ServerName localhost" >> /etc/apache2.conf
+# Add ServerName to the Apache configuration
+echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Start the Apache service
 service apache2 start
+
+if pgrep -x "apache2" > /dev/null
+then
+    echo "apache2 is running"
+else
+    echo "Failed to start apache2"
+    exit 1
+fi
